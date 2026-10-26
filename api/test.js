@@ -9,7 +9,7 @@ export default function handleCall(req, res) {
         req.on('end', () => {
             try {
                 //console.log(body);
-                res.end('ok');
+                //res.end('ok');
                 m = JSON.parse(body);
                 return res.status(200).json({message: body});
             } catch (e) {
