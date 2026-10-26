@@ -15,8 +15,8 @@
                 });
                 
                 let innerJson = await response.json();
-                console.log(innerJson);
-                document.getElementById("hello2").innerText = innerJson;
+                console.log(innerJson.message);
+                document.getElementById("hello2").innerText = innerJson.message;
             }
         </script>
     </body>
