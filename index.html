@@ -9,7 +9,8 @@
         <p id="hello2"></p>
         <script>
             async function getResponse() {
-                const response = await fetch("https://api-test-theta-ten.vercel.app/api/test");
+                const response = await fetch("https://api-test-theta-ten.vercel.app/api/test", {method: "POST", body: JSON.stringify({message: "Hello from POST request"})});
+                
                 let innerJson = await response.json();
                 console.log(innerJson);
                 document.getElementById("hello2").innerText = innerJson;
