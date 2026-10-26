@@ -1,5 +1,5 @@
 export default function handleCall(req, res) {
-    let m = "Hello";
+    //let m = "Hello";
     if (req.method == "POST") {
         let body = '';
         req.on('data', buffer => {
@@ -11,11 +11,12 @@ export default function handleCall(req, res) {
                 //console.log(body);
                 res.end('ok');
                 m = JSON.parse(body);
+                return res.status(200).json({message: body});
             } catch (e) {
-                m = e;
+                return res.status(200).json({message: e});
             }
         });
         
     }
-    return res.status(200).json({message: m});
+    else return res.status(200).json({message: "Not a post request"});
 }
