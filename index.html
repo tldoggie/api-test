@@ -11,12 +11,12 @@
             async function getResponse() {
                 const response = await fetch("https://api-test-theta-ten.vercel.app/api/test", {
                     method: "POST", 
-                    body: JSON.stringify({message: "Hello from POST request"})
+                    body: JSON.stringify({message: "Hello from POST call"})
                 });
                 
                 let innerJson = await response.json();
-                console.log(innerJson.message);
-                document.getElementById("hello2").innerText = innerJson.message;
+                console.log(innerJson.message2);
+                document.getElementById("hello2").innerText = innerJson.message2;
             }
         </script>
     </body>

@@ -10,12 +10,15 @@ export default function handleCall(req, res) {
                 //console.log(body);
                 //res.end('ok');
                 let parsedBody = Buffer.concat(body).toString();
-                return res.send(parsedBody);
+                let message = JSON.parse(parsedBody).message;
+                let ret = JSON.stringify({message2: `Hello from Post request. You said ${message}.`})
+                
+                return res.send(ret);
             } catch (e) {
-                return res.status(200).json({message: e});
+                return res.send(e);
             }
         });
         
     }
-    else return res.status(200).json({message: "Not a post request"});
+    else return res.status(200).json({message2: "Not a post request"});
 }
