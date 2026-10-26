@@ -3,10 +3,11 @@ export default function handleCall(req, res) {
     if (req.method == "POST") {
         let body = '';
         req.on('data', buffer => {
+            console.log(buffer.toString())
             body += buffer.toString(); // convert Buffer to string
         });
         req.on('end', () => {
-            console.log(body);
+            //console.log(body);
             res.end('ok');
         });
         m = body;
