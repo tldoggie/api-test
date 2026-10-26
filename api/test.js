@@ -7,10 +7,15 @@ export default function handleCall(req, res) {
             body += buffer.toString(); // convert Buffer to string
         });
         req.on('end', () => {
-            //console.log(body);
-            res.end('ok');
+            try {
+                //console.log(body);
+                res.end('ok');
+                m = JSON.parse(body);
+            } catch (e) {
+                m = e;
+            }
         });
-        m = body;
+        
     }
     return res.status(200).json({message: m});
 }
