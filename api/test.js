@@ -11,7 +11,7 @@ export default function handleCall(req, res) {
                 //console.log(body);
                 //res.end('ok');
                 m = JSON.parse(body);
-                return res.status(200).json({message: body});
+                return res.status(200).json({message: JSON.parse(body)});
             } catch (e) {
                 return res.status(200).json({message: e});
             }
