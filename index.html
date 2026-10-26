@@ -11,7 +11,7 @@
             async function getResponse() {
                 const response = await fetch("https://api-test-theta-ten.vercel.app/api/test");
 
-                document.getElementById("hello2").innerText = response;
+                document.getElementById("hello2").innerText = response.json();
             }
         </script>
     </body>
